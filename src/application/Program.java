@@ -1,9 +1,9 @@
 package application;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -17,8 +17,6 @@ public class Program {
 		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		List<Product> list = new ArrayList<>();
 		
@@ -36,17 +34,17 @@ public class Program {
 			System.out.print("Price: ");
 			double price = sc.nextDouble();
 			sc.nextLine();
-			System.out.print("Customs fee: ");
 			
 			if(aux.toUpperCase().equals("C")) {
 				Product product = new Product(name, price);
 				list.add(product);
 			} else if(aux.toUpperCase().equals("U")) {
 				System.out.print("Manufacture date (DD/MM/YYYY): ");
-				Date date = sdf.parse(sc.next());
+				LocalDate date = LocalDate.parse(sc.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 				
 				Product product = new UsedProduct(name, price, date);
 				list.add(product);
+				System.out.println(product);
 			}
 		}
 		
