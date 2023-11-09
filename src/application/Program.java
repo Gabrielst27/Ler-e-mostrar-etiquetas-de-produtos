@@ -3,6 +3,8 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entities.Product;
+
 public class Program {
 	
 	public static void main(String[]args) {
@@ -19,8 +21,16 @@ public class Program {
 			System.out.print("Common, used or imported? (c/u/i): ");
 			String aux = sc.nextLine();
 			
+			System.out.print("Name: ");
+			String name = sc.nextLine();
+			System.out.print("Price: ");
+			double price = sc.nextDouble();
+			sc.nextLine();
+			System.out.print("Customs fee: ");
 			
-			
+			if(aux.toUpperCase().equals("C")) {
+				Product product = new Product(name, price);
+			} 
 		}
 		
 		sc.close();
