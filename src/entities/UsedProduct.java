@@ -1,12 +1,9 @@
 package entities;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
 
 public final class UsedProduct extends Product {
-	
-	public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
 	private LocalDate manufactureDate;
 	
@@ -23,14 +20,10 @@ public final class UsedProduct extends Product {
 		return manufactureDate;
 	}
 
-	public void setManufactureDate(LocalDate manufactureDate) {
-		this.manufactureDate = manufactureDate;
-	}
-	
 	@Override
 	public String priceTag() {
 		return name + " (used) - $ " + String.format("%.2f", price)
-		+ " (Manufacture date: " + sdf.format(manufactureDate) + ")";
+		+ " (Manufacture date: " + manufactureDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + ")";
 	}
 
 }
