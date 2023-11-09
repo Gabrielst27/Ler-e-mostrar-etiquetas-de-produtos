@@ -34,7 +34,6 @@ public class Program {
 			String name = sc.nextLine();
 			System.out.print("Price: ");
 			double price = sc.nextDouble();
-			sc.nextLine();
 			
 			if(aux.toUpperCase().equals("C")) {
 				Product product = new Product(name, price);
@@ -45,7 +44,6 @@ public class Program {
 				
 				Product product = new UsedProduct(name, price, date);
 				list.add(product);
-				System.out.println(product.priceTag());
 			} else if(aux.toUpperCase().equals("I")) {
 				System.out.print("Customs fee: ");
 				double customsFee = sc.nextDouble();
@@ -53,6 +51,12 @@ public class Program {
 				Product product = new ImportedProduct(name, price, customsFee);
 				list.add(product);
 			}
+		}
+		
+		System.out.println();
+		System.out.println("PRICE TAGS:");
+		for(Product p : list) {
+			System.out.println(p.priceTag());
 		}
 		
 		sc.close();
