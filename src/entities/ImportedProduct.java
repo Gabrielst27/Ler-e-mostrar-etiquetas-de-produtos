@@ -17,10 +17,6 @@ public final class ImportedProduct extends Product {
 		return customsFee;
 	}
 
-	public final void setCustomsFee(Double customsFee) {
-		this.customsFee = customsFee;
-	}
-	
 	public final Double totalPrice() {
 		return price + customsFee;
 	}
