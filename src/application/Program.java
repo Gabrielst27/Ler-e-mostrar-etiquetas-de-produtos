@@ -36,20 +36,15 @@ public class Program {
 			double price = sc.nextDouble();
 			
 			if(aux.toUpperCase().equals("C")) {
-				Product product = new Product(name, price);
-				list.add(product);
+				list.add(new Product(name, price));
 			} else if(aux.toUpperCase().equals("U")) {
 				System.out.print("Manufacture date (DD/MM/YYYY): ");
 				LocalDate date = LocalDate.parse(sc.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-				
-				Product product = new UsedProduct(name, price, date);
-				list.add(product);
+				list.add(new UsedProduct(name, price, date));
 			} else if(aux.toUpperCase().equals("I")) {
 				System.out.print("Customs fee: ");
 				double customsFee = sc.nextDouble();
-				
-				Product product = new ImportedProduct(name, price, customsFee);
-				list.add(product);
+				list.add(new ImportedProduct(name, price, customsFee));
 			}
 		}
 		
